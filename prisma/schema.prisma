@@ -13,28 +13,30 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(cuid())
-  email     String   @unique
-  username  String   @unique
-  name     String?
-  bio     String?
-  image    String?
+  id String @id @default(cuid())
+  email String @unique
+  username String @unique
+  clerkId String @unique
+  name String?
+  bio String?
+  image String?
   location String?
-  website  String?
-  createdAt DateTime @default(now()) // member since
+  website String?
+  createdAt DateTime @default(now()) // member since 2020
   updatedAt DateTime @updatedAt
 
-  // Relations
-  posts    Post[]
-  comments Comment[]
-  likes   Like[]
+  // Relations: 
+  posts Post[] // One-to-many
+  comments Comment[] // One-to-many
+  likes Like[] // One-to-many
 
-  followers Follows[] @relation("following") // users that follow this user
-  following Follows[] @relation("follower") // users that this user follows
+  followers Follows[] @relation("following") // users who follow this user
+  following Follows[] @relation("follower") // users this user follows
 
-  notifications Notification[] @relation("userNotifications") // notifications received by the user
-  notificationsCreated Notification[] @relation("notificationCreator") // notifications created by the user
+  notifications Notification[] @relation("userNotifications") // notifications received by a user
+  notificationsCreated Notification[] @relation("notificationCreator") // notifications triggered by a user
 }
+
 
 model Post{
   id        String    @id @default(cuid())
