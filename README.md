@@ -1,20 +1,40 @@
 # Juntoo
 
-Juntoo is a modern social media web application built with Next.js and the MERN ecosystem.
-The goal of this project is to create a clean, responsive, and scalable platform where users can connect and interact smoothly.
+Juntoo is a modern social media web application built with Next.js, TypeScript, Prisma, and PostgreSQL. The goal of this project is to create a scalable and interactive platform where users can connect, share content, and engage with others through posts, follows, and notifications.
 
-This project is also part of my learning journey as I explore full-stack development, authentication systems, responsive UI design, and scalable frontend architecture.
+This project is also part of my journey in learning full-stack development and gaining hands-on experience with authentication, database design, server actions, and modern web application architecture.
 
 ---
 
 ## ✨ Features
 
-* User authentication with Clerk
+### Authentication & User Management
+
+* Secure authentication with Clerk
+* Automatic user synchronization with the database
+* User profiles with:
+
+  * Profile picture
+  * Bio
+  * Location
+  * Website
 * Dark / Light mode support
-* Responsive navbar for desktop and mobile devices
-* User profile navigation
-* Notification section UI
-* Modern and reusable UI components
+
+### Social Features
+
+* Create posts
+* Follow and unfollow users
+* "Who to Follow" recommendations
+* Follow notifications
+* User follower and following counts
+* Personalized sidebar with user information
+
+### UI & Experience
+
+* Responsive navigation for desktop and mobile
+* Mobile sidebar menu
+* Theme-aware UI
+* Modern reusable component architecture
 * Built using Next.js App Router
 
 ---
@@ -23,11 +43,17 @@ This project is also part of my learning journey as I explore full-stack develop
 
 ### Frontend
 
-* Next.js
+* Next.js 14
 * React
 * TypeScript
 * Tailwind CSS
 * shadcn/ui
+
+### Backend
+
+* Next.js Server Actions
+* Prisma ORM
+* PostgreSQL
 
 ### Authentication
 
@@ -45,25 +71,25 @@ This project is also part of my learning journey as I explore full-stack develop
 
 Clone the repository:
 
-```bash id="b6a8vv"
+```bash
 git clone <your-repository-url>
 ```
 
-Go to the project folder:
+Navigate to the project directory:
 
-```bash id="97v4v1"
+```bash
 cd juntoo
 ```
 
 Install dependencies:
 
-```bash id="y6pgoq"
+```bash
 npm install
 ```
 
-Start the development server:
+Run the development server:
 
-```bash id="y1ps1q"
+```bash
 npm run dev
 ```
 
@@ -71,12 +97,26 @@ npm run dev
 
 ## 🔑 Environment Variables
 
-Create a `.env` file in the root directory and add your Clerk keys:
+Create a `.env` file in the root directory:
 
-```env id="a1e7r2"
+```env
+DATABASE_URL=your_postgresql_database_url
+
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_publishable_key
 
 CLERK_SECRET_KEY=your_secret_key
+```
+
+Generate Prisma Client:
+
+```bash
+npx prisma generate
+```
+
+Push schema changes:
+
+```bash
+npx prisma db push
 ```
 
 ---
@@ -86,43 +126,51 @@ CLERK_SECRET_KEY=your_secret_key
 Currently implemented:
 
 * Clerk authentication
-* Responsive navigation bar
-* Mobile sidebar menu
-* Dark mode toggle
-* shadcn/ui setup
-* Theme-aware UI styling
+* User synchronization with PostgreSQL
+* Prisma database integration
+* Responsive navbar
+* Mobile navigation
+* Theme switching
+* User profile sidebar
+* Create post functionality
+* Follow / unfollow functionality
+* Follow notifications
+* Who-to-follow recommendations
+* Reusable UI component system
+* Server Actions architecture
 
 ---
 
-## 🎯 Future Plans
+## 🎯 Planned Features
 
-Some features planned for future updates:
-
-* Create and manage posts
-* Like and comment system
+* Post likes
+* Comments system
+* Post feed optimization
+* User search
+* Notification center
+* Image uploads
+* Profile editing
+* Real-time updates
 * Real-time chat
-* Follow/friend system
-* Notifications backend
-* Media uploads
-* Profile customization
-* Database integration
-* Real-time features with Socket.IO
+* Infinite scrolling
+* Deployment and production optimizations
 
 ---
 
-## 📚 Purpose of the Project
+## 📚 Learning Goals
 
-This project is mainly focused on improving my skills in:
+This project focuses on improving my understanding of:
 
-* Full-stack development
-* Modern React patterns
-* Authentication systems
+* Full-stack web development
+* Authentication workflows
+* Database modeling and relationships
+* Prisma ORM
+* PostgreSQL
+* Server Actions in Next.js
 * Responsive UI design
-* Scalable project structure
-* Real-world application architecture
+* Scalable application architecture
+* Real-world social media features
 
 ---
 
-## 📄 License
 
-This project is currently being developed for learning and portfolio purposes.
